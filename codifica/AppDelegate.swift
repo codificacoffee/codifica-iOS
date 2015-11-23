@@ -17,6 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
+        self.window?.makeKeyAndVisible()
+        self.window?.frame = UIScreen.mainScreen().bounds
+        
+        let tabBarController = UITabBarController.init()
+        
+        let labsViewController = LabsTableViewController.init()
+        
+        let controllers = [labsViewController]
+        tabBarController.viewControllers = controllers
+        tabBarController.selectedIndex = 0
+        
+        self.window?.rootViewController = tabBarController
         return true
     }
 
